@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainAttributesView: View {
+struct MainAttributesSubView: View {
     @EnvironmentObject var viewModel: ViewModel
     
     let cornerRadius = 35.0
@@ -77,7 +77,7 @@ struct MainAttributesView: View {
 
 struct MainAttributesView_Previews: PreviewProvider {
     static var previews: some View {
-        MainAttributesView(rocket: Rocket.example)
+        MainAttributesSubView(rocket: Rocket.example)
             .environmentObject(ViewModel())
     }
 }

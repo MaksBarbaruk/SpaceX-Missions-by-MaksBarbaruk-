@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RocketNameView: View {
+struct RocketNameSubView: View {
     let rocket: Rocket
     
     @State private var showSettings = false
@@ -35,7 +35,7 @@ struct RocketNameView: View {
 
 struct RocketNameView_Previews: PreviewProvider {
     static var previews: some View {
-        RocketNameView(rocket: Rocket.example)
+        RocketNameSubView(rocket: Rocket.example)
             .environmentObject(ViewModel())
     }
 }

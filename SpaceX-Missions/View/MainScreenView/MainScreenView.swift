@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainScreenView: View {
     @EnvironmentObject private var viewModel: ViewModel
     
     var body: some View {
@@ -16,7 +16,7 @@ struct ContentView: View {
                 if !viewModel.rockets.isEmpty {
                     TabView {
                         ForEach(viewModel.rockets) { rocket in
-                            RocketView(rocket: rocket)
+                            RocketSubView(rocket: rocket)
                         }
                     }
                     .tabViewStyle(.page)
@@ -39,7 +39,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainScreenView()
             .environmentObject(ViewModel())
     }
 }

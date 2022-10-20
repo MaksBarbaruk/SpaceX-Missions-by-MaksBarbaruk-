@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MoreAttributesView: View {
+struct MoreAttributesSubView: View {
     let rocket: Rocket
     
     var body: some View {
@@ -45,7 +45,7 @@ struct MoreAttributesView: View {
 
 struct MoreAttributesView_Previews: PreviewProvider {
     static var previews: some View {
-        MoreAttributesView(rocket: Rocket.example)
+        MoreAttributesSubView(rocket: Rocket.example)
             .environmentObject(ViewModel())
     }
 }

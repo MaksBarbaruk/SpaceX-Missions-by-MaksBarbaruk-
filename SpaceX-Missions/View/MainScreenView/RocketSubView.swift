@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RocketView: View {
+struct RocketSubView: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.safeAreaInsets) private var safeAreaInsets
     
@@ -20,36 +20,18 @@ struct RocketView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                VStack {
-                    AsyncImage(url: imageUrl) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .frame(width: geometry.size.width, height: geometry.size.height / 3)
-                    .offset(y: -safeAreaInsets.top)
-                    .accessibilityHidden(true)
-                    
-                    Spacer()
-                }
+                imageSection(geometry: geometry)
                 
                 VStack {
                     Spacer(minLength: (geometry.size.height / 3) - safeAreaInsets.top - cornerRadius * 2)
                     
                     ScrollView(showsIndicators: false) {
                         VStack {
-                            RocketNameView(rocket: rocket)
-                                .padding(.vertical, 16)
-                            MainAttributesView(rocket: rocket)
-                                .padding(.vertical, 16)
-                            MoreAttributesView(rocket: rocket)
-                                .padding(.vertical, 16)
-                            StageView(stage: rocket.firstStage, stageNumberString: "First stage")
-                                .padding(.vertical, 16)
-                            StageView(stage: rocket.secondStage, stageNumberString: "Second stage")
-                                .padding(.vertical, 16)
+                            RocketNameSubView(rocket: rocket)
+                            MainAttributesSubView(rocket: rocket)
+                            MoreAttributesSubView(rocket: rocket)
+                            StageSubView(stage: rocket.firstStage, stageNumberString: "First stage")
+                            StageSubView(stage: rocket.secondStage, stageNumberString: "Second stage")
                             
                             NavigationLink {
                                 LaunchesView(rocket: rocket)
@@ -59,6 +41,7 @@ struct RocketView: View {
                             .buttonStyle(.borderedProminent)
                             .padding(.bottom, cornerRadius)
                         }
+                        .padding(.vertical, 16)
                         .padding(30)
                     }
                     .background(.black)
@@ -70,9 +53,28 @@ struct RocketView: View {
     }
 }
 
+extension RocketSubView {
+    private func imageSection(geometry: GeometryProxy)-> some View {
+        VStack {
+            AsyncImage(url: imageUrl) { image in
+                image
+                    .resizable()
+                    .scaledToFill()
+            } placeholder: {
+                ProgressView()
+            }
+            .frame(width: geometry.size.width, height: geometry.size.height / 3)
+            .offset(y: -safeAreaInsets.top)
+            .accessibilityHidden(true)
+            
+            Spacer()
+        }
+    }
+}
+
 struct RocketView_Previews: PreviewProvider {
     static var previews: some View {
-        RocketView(rocket: Rocket.example)
+        RocketSubView(rocket: Rocket.example)
             .preferredColorScheme(.dark)
             .environmentObject(ViewModel())
     }

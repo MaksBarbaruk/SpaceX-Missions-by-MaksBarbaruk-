@@ -13,7 +13,7 @@ struct SpaceX_MissionsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainScreenView()
                 .environmentObject(viewModel)
         }
     }

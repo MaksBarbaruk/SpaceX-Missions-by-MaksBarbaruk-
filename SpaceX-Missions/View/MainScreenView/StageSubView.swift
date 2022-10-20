@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StageView: View {
+struct StageSubView: View {
     let stage: Rocket.Stage
     let stageNumberString: String
     
@@ -59,7 +59,7 @@ struct StageView: View {
 
 struct StageView_Previews: PreviewProvider {
     static var previews: some View {
-        StageView(stage: Rocket.example.firstStage, stageNumberString: "First stage")
+        StageSubView(stage: Rocket.example.firstStage, stageNumberString: "First stage")
             .environmentObject(ViewModel())
     }
 }
