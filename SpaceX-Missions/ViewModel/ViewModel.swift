@@ -8,8 +8,8 @@
 import Foundation
 
 @MainActor class ViewModel: ObservableObject {
-    @Published var rockets: [Rocket]
-    @Published var launches: [Launch]
+    @Published var rockets: [Rocket] = []
+    @Published var launches: [Launch] = []
     @Published var metrics = Metrics() {
         didSet {
             if let encoded = try? JSONEncoder().encode(metrics) {
@@ -19,8 +19,8 @@ import Foundation
     }
     
     init() {
-        self.rockets = []
-        self.launches = []
+//        self.rockets = []
+//        self.launches = []
         
         if let savedMetrics = UserDefaults.standard.data(forKey: "Metrics") {
             if let decodedItems = try? JSONDecoder().decode(Metrics.self, from: savedMetrics) {
