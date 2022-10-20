@@ -2,7 +2,7 @@
 //  RocketNameView.swift
 //  SpaceX-Missions
 //
-//  Created by MaksBarbaruk on 07.08.2022.
+//  Created by MaksBarbaruk on 07.02.2022.
 //
 
 import SwiftUI

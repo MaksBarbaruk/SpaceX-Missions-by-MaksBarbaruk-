@@ -76,9 +76,9 @@
 			isa = PBXGroup;
 			children = (
 				8479FBE5289E531900F49BA2 /* SpaceX_MissionsApp.swift */,
-				8479FBFB289FA73A00F49BA2 /* View */,
-				8479FBFA289EB09000F49BA2 /* ViewModel */,
-				8479FBF5289E5EDF00F49BA2 /* Model */,
+				8479FBFB289FA73A00F49BA2 /* Views */,
+				8479FBFA289EB09000F49BA2 /* ViewModels */,
+				8479FBF5289E5EDF00F49BA2 /* Models */,
 				8479FBE9289E531C00F49BA2 /* Assets.xcassets */,
 				8479FBEB289E531C00F49BA2 /* Preview Content */,
 			);
@@ -93,7 +93,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8479FBF5289E5EDF00F49BA2 /* Model */ = {
+		8479FBF5289E5EDF00F49BA2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				8479FBF3289E5ED100F49BA2 /* Rocket.swift */,
@@ -101,25 +101,25 @@
 				8479FC0828A102CF00F49BA2 /* Metrics.swift */,
 				84A4966F28A192C8002312EA /* SafeAreaInsets.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		8479FBFA289EB09000F49BA2 /* ViewModel */ = {
+		8479FBFA289EB09000F49BA2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				8479FBF8289EB08900F49BA2 /* ViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		8479FBFB289FA73A00F49BA2 /* View */ = {
+		8479FBFB289FA73A00F49BA2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				84D7D5C72901F423000D2A7F /* MainScreenView */,
 				8479FC0628A0F07200F49BA2 /* SettingsView.swift */,
 				8416922F28A120000022D2E0 /* LaunchesView.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		84D7D5C72901F423000D2A7F /* MainScreenView */ = {

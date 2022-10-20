@@ -2,7 +2,7 @@
 //  SpaceX_MissionsApp.swift
 //  SpaceX-Missions
 //
-//  Created by Admin on 06.08.2022.
+//  Created by MaksBarbaruk on 06.02.2022.
 //  GIT loaded
 
 import SwiftUI
