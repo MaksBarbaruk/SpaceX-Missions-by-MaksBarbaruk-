@@ -19,8 +19,6 @@ import Foundation
     }
     
     init() {
-//        self.rockets = []
-//        self.launches = []
         
         if let savedMetrics = UserDefaults.standard.data(forKey: "Metrics") {
             if let decodedItems = try? JSONDecoder().decode(Metrics.self, from: savedMetrics) {
@@ -33,29 +31,31 @@ import Foundation
     
     func loadData() async {
         
+//        await DataManager.shared.loadData()
+
         guard let rocketUrl = URL(string: "https://api.spacexdata.com/v4/rockets") else {
             print("Invalid URL")
             return
         }
-        
+
         guard let launchesUrl = URL(string: "https://api.spacexdata.com/v4/launches") else {
             print("Invalid URL")
             return
         }
-        
+
         do {
-            
+
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             decoder.dateDecodingStrategy = .iso8601
-            
+
             let (rocketData, _) = try await URLSession.shared.data(from: rocketUrl)
             let (launchesData, _) = try await URLSession.shared.data(from: launchesUrl)
-            
+
             if let launches = try? decoder.decode([Launch].self, from: launchesData) {
                 self.launches = launches
             }
-           
+
             let formatter = DateFormatter()
             decoder.dateDecodingStrategy = .custom { decoder in
                 let container = try decoder.singleValueContainer()
@@ -73,11 +73,11 @@ import Foundation
                     debugDescription: "Cannot decode date string \(dateString)")
             }
             if let rockets = try? decoder.decode([Rocket].self, from: rocketData) {
-                self.rockets = rockets
+                self.rockets = rockets.shuffled()
             }
-            
-        } catch {
-            print("Invalid data")
+
+        } catch let error {
+            print("Invalid data: \(error.localizedDescription)")
         }
     }
 }

@@ -10,17 +10,23 @@ import SwiftUI
 struct RocketSubView: View {
     @EnvironmentObject var viewModel: ViewModel
     @Environment(\.safeAreaInsets) private var safeAreaInsets
+    @State private var imageUrl: URL? = URL(string: "")
     
     let rocket: Rocket
     let cornerRadius = 35.0
-    var imageUrl: URL? {
-        return URL(string: rocket.flickrImages.randomElement() ?? "Unknown string")
+    var getNewImageUrl: URL? {
+        
+        let url = URL(string: rocket.flickrImages.randomElement() ?? "Unknown string")
+        return url
     }
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 imageSection(geometry: geometry)
+                    .onTapGesture {
+                        imageUrl = getNewImageUrl
+                    }
                 
                 VStack {
                     Spacer(minLength: (geometry.size.height / 3) - safeAreaInsets.top - cornerRadius * 2)
@@ -47,6 +53,9 @@ struct RocketSubView: View {
                     .background(.black)
                     .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                     .padding(.top, 30)
+                }
+                .onAppear {
+                    imageUrl = getNewImageUrl
                 }
             }
         }

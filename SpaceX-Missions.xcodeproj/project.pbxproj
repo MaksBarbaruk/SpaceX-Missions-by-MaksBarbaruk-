@@ -23,6 +23,7 @@
 		8479FC0728A0F07200F49BA2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479FC0628A0F07200F49BA2 /* SettingsView.swift */; };
 		8479FC0928A102CF00F49BA2 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479FC0828A102CF00F49BA2 /* Metrics.swift */; };
 		84A4967028A192C8002312EA /* SafeAreaInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4966F28A192C8002312EA /* SafeAreaInsets.swift */; };
+		84D7D5CE29047E09000D2A7F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7D5CD29047E09000D2A7F /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		8479FC0628A0F07200F49BA2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8479FC0828A102CF00F49BA2 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		84A4966F28A192C8002312EA /* SafeAreaInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsets.swift; sourceTree = "<group>"; };
+		84D7D5CD29047E09000D2A7F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				8479FBE5289E531900F49BA2 /* SpaceX_MissionsApp.swift */,
+				84D7D5CC29047DC9000D2A7F /* ViewExtensions */,
+				84D7D5CB29047D9F000D2A7F /* Utilities */,
 				8479FBFB289FA73A00F49BA2 /* Views */,
 				8479FBFA289EB09000F49BA2 /* ViewModels */,
 				8479FBF5289E5EDF00F49BA2 /* Models */,
@@ -99,7 +103,6 @@
 				8479FBF3289E5ED100F49BA2 /* Rocket.swift */,
 				8479FBF6289E772100F49BA2 /* Launch.swift */,
 				8479FC0828A102CF00F49BA2 /* Metrics.swift */,
-				84A4966F28A192C8002312EA /* SafeAreaInsets.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +136,22 @@
 				8479FC0428A02EC300F49BA2 /* StageSubView.swift */,
 			);
 			path = MainScreenView;
+			sourceTree = "<group>";
+		};
+		84D7D5CB29047D9F000D2A7F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				84D7D5CD29047E09000D2A7F /* DataManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		84D7D5CC29047DC9000D2A7F /* ViewExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				84A4966F28A192C8002312EA /* SafeAreaInsets.swift */,
+			);
+			path = ViewExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8479FC0328A0288D00F49BA2 /* MoreAttributesSubView.swift in Sources */,
+				84D7D5CE29047E09000D2A7F /* DataManager.swift in Sources */,
 				8479FBFD289FA74E00F49BA2 /* RocketSubView.swift in Sources */,
 				8479FBFF28A00C8300F49BA2 /* RocketNameSubView.swift in Sources */,
 				8416923028A120000022D2E0 /* LaunchesView.swift in Sources */,
