@@ -31,7 +31,6 @@ struct MainScreenView: View {
             }
         }
         .navigationViewStyle(.stack)
-        //.environmentObject(viewModel)
     }
     
     

@@ -15,9 +15,7 @@ struct RocketSubView: View {
     let rocket: Rocket
     let cornerRadius = 35.0
     var getNewImageUrl: URL? {
-        
-        let url = URL(string: rocket.flickrImages.randomElement() ?? "Unknown string")
-        return url
+         URL(string: rocket.flickrImages.randomElement() ?? "Unknown string")
     }
     
     var body: some View {
