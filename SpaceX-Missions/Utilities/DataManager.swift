@@ -12,6 +12,7 @@ class DataManager: ObservableObject {
     private init() { }
     
     func loadData() async {
+        /*
         
 //        guard let rocketUrl = URL(string: "https://api.spacexdata.com/v4/rockets") else {
 //            print("Invalid URL")
@@ -59,6 +60,7 @@ class DataManager: ObservableObject {
 //        } catch {
 //            print("Invalid data")
 //        }
+*/
     }
     
 }
