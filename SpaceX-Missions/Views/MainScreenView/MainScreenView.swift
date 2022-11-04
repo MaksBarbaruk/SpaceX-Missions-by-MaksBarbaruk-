@@ -27,7 +27,7 @@ struct MainScreenView: View {
             }
             .preferredColorScheme(.dark)
             .task {
-                await viewModel.loadData()
+                await viewModel.dataManager.loadData()
             }
         }
         .navigationViewStyle(.stack)

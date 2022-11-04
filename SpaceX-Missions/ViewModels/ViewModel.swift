@@ -7,9 +7,10 @@
 
 import Foundation
 
-@MainActor class ViewModel: ObservableObject {
-    @Published var rockets: [Rocket] = []
-    @Published var launches: [Launch] = []
+class ViewModel: ObservableObject {
+    @MainActor @Published var rockets: [Rocket] = []
+    @MainActor @Published var launches: [Launch] = []
+    
     @Published var metrics = Metrics() {
         didSet {
             if let encoded = try? JSONEncoder().encode(metrics) {
@@ -18,7 +19,11 @@ import Foundation
         }
     }
     
+    let dataManager = DataManager()
+    
     init() {
+        
+        addSubscribers()
         
         if let savedMetrics = UserDefaults.standard.data(forKey: "Metrics") {
             if let decodedItems = try? JSONDecoder().decode(Metrics.self, from: savedMetrics) {
@@ -29,55 +34,22 @@ import Foundation
         metrics = Metrics()
     }
     
-    func loadData() async {
+    func addSubscribers() {
         
-//        await DataManager.shared.loadData()
-
-        guard let rocketUrl = URL(string: "https://api.spacexdata.com/v4/rockets") else {
-            print("Invalid URL")
-            return
+        Task {
+            for await value in dataManager.$launches.values {
+                await MainActor.run(body: {
+                    self.launches = value
+                })
+            }
         }
-
-        guard let launchesUrl = URL(string: "https://api.spacexdata.com/v4/launches") else {
-            print("Invalid URL")
-            return
-        }
-
-        do {
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            decoder.dateDecodingStrategy = .iso8601
-
-            let (rocketData, _) = try await URLSession.shared.data(from: rocketUrl)
-            let (launchesData, _) = try await URLSession.shared.data(from: launchesUrl)
-
-            if let launches = try? decoder.decode([Launch].self, from: launchesData) {
-                self.launches = launches
+        
+        Task {
+            for await value in dataManager.$rockets.values {
+                await MainActor.run(body: {
+                    self.rockets = value
+                })
             }
-
-            let formatter = DateFormatter()
-            decoder.dateDecodingStrategy = .custom { decoder in
-                let container = try decoder.singleValueContainer()
-                let dateString = try container.decode(String.self)
-
-                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                if let date = formatter.date(from: dateString) {
-                    return date
-                }
-                formatter.dateFormat = "yyyy-MM-dd"
-                if let date = formatter.date(from: dateString) {
-                    return date
-                }
-                throw DecodingError.dataCorruptedError(in: container,
-                    debugDescription: "Cannot decode date string \(dateString)")
-            }
-            if let rockets = try? decoder.decode([Rocket].self, from: rocketData) {
-                self.rockets = rockets.shuffled()
-            }
-
-        } catch let error {
-            print("Invalid data: \(error.localizedDescription)")
         }
     }
 }
