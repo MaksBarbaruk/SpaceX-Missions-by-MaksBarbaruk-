@@ -22,9 +22,11 @@ class ViewModel: ObservableObject {
     let dataManager = DataManager()
     
     init() {
-        
         addSubscribers()
-        
+        setupMetrics()
+    }
+    
+    func setupMetrics() {
         if let savedMetrics = UserDefaults.standard.data(forKey: "Metrics") {
             if let decodedItems = try? JSONDecoder().decode(Metrics.self, from: savedMetrics) {
                 metrics = decodedItems
