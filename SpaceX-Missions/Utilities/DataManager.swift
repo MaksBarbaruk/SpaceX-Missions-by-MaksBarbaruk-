@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 class DataManager: ObservableObject {
     
     @Published var rockets: [Rocket] = []

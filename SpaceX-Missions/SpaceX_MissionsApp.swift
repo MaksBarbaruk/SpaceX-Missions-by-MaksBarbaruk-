@@ -9,7 +9,11 @@ import SwiftUI
 
 @main
 struct SpaceX_MissionsApp: App {
-    @StateObject var viewModel = ViewModel()
+    init() {
+        _viewModel = StateObject(wrappedValue: ViewModel())
+    }
+    
+    @StateObject var viewModel: ViewModel
     
     var body: some Scene {
         WindowGroup {
