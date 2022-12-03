@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 class ViewModel: ObservableObject {
     @MainActor @Published var rockets: [Rocket] = []
     @MainActor @Published var launches: [Launch] = []
@@ -39,7 +37,6 @@ class ViewModel: ObservableObject {
     }
     
     func addSubscribers() {
-        
         Task {
             for await value in dataManager.$launches.values {
                 await MainActor.run(body: {

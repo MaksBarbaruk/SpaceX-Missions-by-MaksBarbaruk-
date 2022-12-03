@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MainScreenView: View {
     @EnvironmentObject private var viewModel: ViewModel
+    @State private var alertPresent = false
+    @State private var errorMessage = ""
     
     var body: some View {
         NavigationView {
@@ -27,8 +29,14 @@ struct MainScreenView: View {
             }
             .preferredColorScheme(.dark)
             .task {
-                await viewModel.dataManager.loadData()
+                do {
+                    try await viewModel.dataManager.loadData()
+                } catch let error {
+                    errorMessage = error.localizedDescription
+                    alertPresent = true
+                }
             }
+            .alert("Oops, an error occurred: \(errorMessage)", isPresented: $alertPresent) { }
         }
         .navigationViewStyle(.stack)
     }
