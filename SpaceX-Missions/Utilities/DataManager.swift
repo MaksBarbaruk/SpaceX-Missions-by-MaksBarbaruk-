@@ -16,7 +16,7 @@ class DataManager: GetDataManager, ObservableObject {
         }
         
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let (data, response) = try await URLSession.shared.data(from: url)
             return data
             
         } catch {

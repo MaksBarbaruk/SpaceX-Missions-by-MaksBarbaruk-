@@ -2,7 +2,7 @@
 //  SpaceX_MissionsApp.swift
 //  SpaceX-Missions
 //
-//  Created by MaksBarbaruk on 06.02.2022.
+//  Created by MaksBarbaruk on 10.08.2022.
 //  GIT loaded
 
 import SwiftUI
@@ -11,9 +11,11 @@ import SwiftUI
 struct SpaceX_MissionsApp: App {
     init() {
         let dataManager = DataManager()
+        let decoder = JSONDecoder.customSpaceXDecoder()
         let rocketsURLString: String = "https://api.spacexdata.com/v4/rockets"
         let launchesURLString: String = "https://api.spacexdata.com/v4/launches"
         let vm = ViewModel(dataManager: dataManager,
+                           decoder: decoder,
                            rocketsURLString: rocketsURLString,
                            launchesURLString: launchesURLString)
         
