@@ -13,10 +13,11 @@ struct SpaceX_MissionsApp: App {
         let dataManager = DataManager()
         let rocketsURLString: String = "https://api.spacexdata.com/v4/rockets"
         let launchesURLString: String = "https://api.spacexdata.com/v4/launches"
+        let vm = ViewModel(dataManager: dataManager,
+                           rocketsURLString: rocketsURLString,
+                           launchesURLString: launchesURLString)
         
-        _viewModel = StateObject(wrappedValue: ViewModel(dataManager: dataManager,
-                                                         rocketsURLString: rocketsURLString,
-                                                         launchesURLString: launchesURLString))
+        _viewModel = StateObject(wrappedValue: vm)
     }
     
     @StateObject var viewModel: ViewModel

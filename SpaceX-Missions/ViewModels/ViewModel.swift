@@ -58,11 +58,11 @@ class ViewModel: ObservableObject {
         }
     }
     
-    func setupDecoder() {
+    private func setupDecoder() {
         
     }
     
-    func setupMetrics() {
+    private func setupMetrics() {
         if let savedMetrics = UserDefaults.standard.data(forKey: "Metrics") {
             if let decodedItems = try? JSONDecoder().decode(Metrics.self, from: savedMetrics) {
                 metrics = decodedItems

@@ -11,4 +11,3 @@ protocol GetDataManager {
     func loadData(from source: String) async throws -> Data
 }
 
-
