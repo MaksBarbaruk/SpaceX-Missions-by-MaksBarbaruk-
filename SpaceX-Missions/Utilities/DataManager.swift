@@ -16,8 +16,13 @@ class DataManager: GetDataManager, ObservableObject {
         }
         
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            return data
+            let (data, response) = try await URLSession.shared.data(from: url)
+            if let response = response as? HTTPURLResponse,
+                    response.statusCode == 200 {
+                return data
+            } else {
+                throw URLError(.badServerResponse)
+            }
             
         } catch {
             throw error
