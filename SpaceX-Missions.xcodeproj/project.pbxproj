@@ -23,6 +23,7 @@
 		8479FC0728A0F07200F49BA2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479FC0628A0F07200F49BA2 /* SettingsView.swift */; };
 		8479FC0928A102CF00F49BA2 /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479FC0828A102CF00F49BA2 /* Metrics.swift */; };
 		848AD920293EA1CC009BCB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848AD91F293EA1CC009BCB9A /* LaunchScreen.storyboard */; };
+		848AD923293F9099009BCB9A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AD922293F9099009BCB9A /* Protocols.swift */; };
 		84A4967028A192C8002312EA /* SafeAreaInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4966F28A192C8002312EA /* SafeAreaInsets.swift */; };
 		84D7D5CE29047E09000D2A7F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7D5CD29047E09000D2A7F /* DataManager.swift */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		8479FC0628A0F07200F49BA2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8479FC0828A102CF00F49BA2 /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 		848AD91F293EA1CC009BCB9A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		848AD922293F9099009BCB9A /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		84A4966F28A192C8002312EA /* SafeAreaInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsets.swift; sourceTree = "<group>"; };
 		84D7D5CD29047E09000D2A7F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				8479FBE5289E531900F49BA2 /* SpaceX_MissionsApp.swift */,
+				848AD921293F9081009BCB9A /* Protocols */,
 				84D7D5CC29047DC9000D2A7F /* ViewExtensions */,
 				84D7D5CB29047D9F000D2A7F /* Utilities */,
 				8479FBFB289FA73A00F49BA2 /* Views */,
@@ -126,6 +129,14 @@
 				848AD91F293EA1CC009BCB9A /* LaunchScreen.storyboard */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		848AD921293F9081009BCB9A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				848AD922293F9099009BCB9A /* Protocols.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		84D7D5C72901F423000D2A7F /* MainScreenView */ = {
@@ -243,6 +254,7 @@
 				8479FBE6289E531900F49BA2 /* SpaceX_MissionsApp.swift in Sources */,
 				8479FC0728A0F07200F49BA2 /* SettingsView.swift in Sources */,
 				84A4967028A192C8002312EA /* SafeAreaInsets.swift in Sources */,
+				848AD923293F9099009BCB9A /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

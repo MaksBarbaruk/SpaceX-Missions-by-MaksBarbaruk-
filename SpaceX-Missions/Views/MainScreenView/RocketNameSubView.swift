@@ -36,6 +36,6 @@ struct RocketNameSubView: View {
 struct RocketNameView_Previews: PreviewProvider {
     static var previews: some View {
         RocketNameSubView(rocket: Rocket.example)
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel(dataManager: DataManager()))
     }
 }

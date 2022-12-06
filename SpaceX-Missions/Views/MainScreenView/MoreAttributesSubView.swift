@@ -46,6 +46,6 @@ struct MoreAttributesSubView: View {
 struct MoreAttributesView_Previews: PreviewProvider {
     static var previews: some View {
         MoreAttributesSubView(rocket: Rocket.example)
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel(dataManager: DataManager()))
     }
 }

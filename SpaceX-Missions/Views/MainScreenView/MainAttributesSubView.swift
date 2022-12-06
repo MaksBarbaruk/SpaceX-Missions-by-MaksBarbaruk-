@@ -78,6 +78,6 @@ struct MainAttributesSubView: View {
 struct MainAttributesView_Previews: PreviewProvider {
     static var previews: some View {
         MainAttributesSubView(rocket: Rocket.example)
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel(dataManager: DataManager()))
     }
 }

@@ -10,7 +10,13 @@ import SwiftUI
 @main
 struct SpaceX_MissionsApp: App {
     init() {
-        _viewModel = StateObject(wrappedValue: ViewModel())
+        let dataManager = DataManager()
+        let rocketsURLString: String = "https://api.spacexdata.com/v4/rockets"
+        let launchesURLString: String = "https://api.spacexdata.com/v4/launches"
+        
+        _viewModel = StateObject(wrappedValue: ViewModel(dataManager: dataManager,
+                                                         rocketsURLString: rocketsURLString,
+                                                         launchesURLString: launchesURLString))
     }
     
     @StateObject var viewModel: ViewModel

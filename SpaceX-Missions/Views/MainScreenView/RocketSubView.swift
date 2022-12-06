@@ -83,7 +83,7 @@ struct RocketView_Previews: PreviewProvider {
     static var previews: some View {
         RocketSubView(rocket: Rocket.example)
             .preferredColorScheme(.dark)
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel(dataManager: DataManager()))
     }
 }
 

@@ -60,6 +60,6 @@ struct StageSubView: View {
 struct StageView_Previews: PreviewProvider {
     static var previews: some View {
         StageSubView(stage: Rocket.example.firstStage, stageNumberString: "First stage")
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel(dataManager: DataManager()))
     }
 }

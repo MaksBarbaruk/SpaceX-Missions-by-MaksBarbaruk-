@@ -30,7 +30,7 @@ struct MainScreenView: View {
             .preferredColorScheme(.dark)
             .task {
                 do {
-                    try await viewModel.dataManager.loadData()
+                    try await viewModel.loadData()
                 } catch let error {
                     errorMessage = error.localizedDescription
                     alertPresent = true
@@ -47,6 +47,6 @@ struct MainScreenView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         MainScreenView()
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel(dataManager: DataManager()))
     }
 }

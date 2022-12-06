@@ -72,6 +72,6 @@ struct LaunchesView: View {
 struct LaunchesView_Previews: PreviewProvider {
     static var previews: some View {
         LaunchesView(rocket: Rocket.example)
-            .environmentObject(ViewModel())
+            .environmentObject(ViewModel(dataManager: DataManager()))
     }
 }
