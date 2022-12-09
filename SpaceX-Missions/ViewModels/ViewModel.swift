@@ -36,6 +36,7 @@ class ViewModel: ObservableObject {
         setupMetrics()
     }
     
+    @MainActor
     func loadData() async throws {
         
         do {
