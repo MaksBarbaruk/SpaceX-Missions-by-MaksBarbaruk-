@@ -25,6 +25,8 @@ struct MainScreenView: View {
                     .navigationBarHidden(true)
                     .statusBar(hidden: true)
                     .ignoresSafeArea()
+                } else {
+                    ProgressView()
                 }
             }
             .preferredColorScheme(.dark)

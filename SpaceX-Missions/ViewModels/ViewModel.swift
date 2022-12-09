@@ -8,8 +8,8 @@
 import Foundation
 
 class ViewModel: ObservableObject {
-    @Published var rockets: [Rocket] = []
-    @Published var launches: [Launch] = []
+    @MainActor @Published var rockets: [Rocket] = []
+    @MainActor @Published var launches: [Launch] = []
     @Published var metrics = Metrics() {
         didSet {
             if let encoded = try? JSONEncoder().encode(metrics) {
@@ -36,7 +36,6 @@ class ViewModel: ObservableObject {
         setupMetrics()
     }
     
-    @MainActor
     func loadData() async throws {
         
         do {
