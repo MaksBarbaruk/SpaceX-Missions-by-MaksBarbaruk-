@@ -3,7 +3,7 @@
 //  SpaceX-Missions
 //
 //  Created by MaksBarbaruk on 10.08.2022.
-//  GIT loaded
+//
 
 import SwiftUI
 
