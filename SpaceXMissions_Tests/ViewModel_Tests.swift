@@ -85,7 +85,44 @@ class ViewModel_Tests: XCTestCase, @unchecked Sendable {
         
     }
     
-
+    func test_ViewModel_doesLoadDataWithDefaults() async throws {
+        // Given
+        let vm = ViewModel()
+        let expectation = XCTestExpectation(description: "Load data in 4 seconds")
+        
+        // When
+        do {
+            try await vm.loadData()
+            expectation.fulfill()
+        } catch {
+            XCTFail()
+        }
+        
+        Task {
+            for await value in vm.$launches.values {
+                await MainActor.run(body: {
+                    self.launches = value
+                })
+            }
+            
+        }
+        
+        Task {
+            for await value in vm.$rockets.values {
+                await MainActor.run(body: {
+                    self.rockets = value
+                })
+            }
+            
+        }
+        
+        // Then
+        wait(for: [expectation], timeout: 15)
+        try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+        XCTAssertFalse(self.launches.isEmpty)
+        XCTAssertFalse(self.rockets.isEmpty)
+        
+    }
     
     
     
