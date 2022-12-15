@@ -25,9 +25,21 @@
 		848AD920293EA1CC009BCB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848AD91F293EA1CC009BCB9A /* LaunchScreen.storyboard */; };
 		848AD923293F9099009BCB9A /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AD922293F9099009BCB9A /* Protocols.swift */; };
 		848AD927293FBEED009BCB9A /* JSONDecoderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AD926293FBEED009BCB9A /* JSONDecoderExtension.swift */; };
+		8493FF7C294B3AE800770ABC /* ViewModel_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8493FF7B294B3AE800770ABC /* ViewModel_Tests.swift */; };
 		84A4967028A192C8002312EA /* SafeAreaInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4966F28A192C8002312EA /* SafeAreaInsets.swift */; };
 		84D7D5CE29047E09000D2A7F /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D7D5CD29047E09000D2A7F /* DataManager.swift */; };
+		84E8A16A294B29DA001F08AC /* SpaceXMissions_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8A169294B29DA001F08AC /* SpaceXMissions_Tests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84E8A16B294B29DA001F08AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8479FBDA289E531900F49BA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8479FBE1289E531900F49BA2;
+			remoteInfo = "SpaceX-Missions";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		8416922F28A120000022D2E0 /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
@@ -49,12 +61,22 @@
 		848AD91F293EA1CC009BCB9A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		848AD922293F9099009BCB9A /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		848AD926293FBEED009BCB9A /* JSONDecoderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoderExtension.swift; sourceTree = "<group>"; };
+		8493FF7B294B3AE800770ABC /* ViewModel_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel_Tests.swift; sourceTree = "<group>"; };
 		84A4966F28A192C8002312EA /* SafeAreaInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsets.swift; sourceTree = "<group>"; };
 		84D7D5CD29047E09000D2A7F /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		84E8A167294B29D9001F08AC /* SpaceXMissions_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceXMissions_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84E8A169294B29DA001F08AC /* SpaceXMissions_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXMissions_Tests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8479FBDF289E531900F49BA2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E8A164294B29D9001F08AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -68,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				8479FBE4289E531900F49BA2 /* SpaceX-Missions */,
+				84E8A168294B29DA001F08AC /* SpaceXMissions_Tests */,
 				8479FBE3289E531900F49BA2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				8479FBE2289E531900F49BA2 /* SpaceX Missions.app */,
+				84E8A167294B29D9001F08AC /* SpaceXMissions_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -187,6 +211,15 @@
 			path = ViewExtensions;
 			sourceTree = "<group>";
 		};
+		84E8A168294B29DA001F08AC /* SpaceXMissions_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				84E8A169294B29DA001F08AC /* SpaceXMissions_Tests.swift */,
+				8493FF7B294B3AE800770ABC /* ViewModel_Tests.swift */,
+			);
+			path = SpaceXMissions_Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,6 +240,24 @@
 			productReference = 8479FBE2289E531900F49BA2 /* SpaceX Missions.app */;
 			productType = "com.apple.product-type.application";
 		};
+		84E8A166294B29D9001F08AC /* SpaceXMissions_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84E8A16F294B29DA001F08AC /* Build configuration list for PBXNativeTarget "SpaceXMissions_Tests" */;
+			buildPhases = (
+				84E8A163294B29D9001F08AC /* Sources */,
+				84E8A164294B29D9001F08AC /* Frameworks */,
+				84E8A165294B29D9001F08AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84E8A16C294B29DA001F08AC /* PBXTargetDependency */,
+			);
+			name = SpaceXMissions_Tests;
+			productName = SpaceXMissions_Tests;
+			productReference = 84E8A167294B29D9001F08AC /* SpaceXMissions_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -219,6 +270,10 @@
 				TargetAttributes = {
 					8479FBE1289E531900F49BA2 = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					84E8A166294B29D9001F08AC = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 8479FBE1289E531900F49BA2;
 					};
 				};
 			};
@@ -236,6 +291,7 @@
 			projectRoot = "";
 			targets = (
 				8479FBE1289E531900F49BA2 /* SpaceX-Missions */,
+				84E8A166294B29D9001F08AC /* SpaceXMissions_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -248,6 +304,13 @@
 				848AD920293EA1CC009BCB9A /* LaunchScreen.storyboard in Resources */,
 				8479FBED289E531C00F49BA2 /* Preview Assets.xcassets in Resources */,
 				8479FBEA289E531C00F49BA2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84E8A165294B29D9001F08AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +341,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		84E8A163294B29D9001F08AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8493FF7C294B3AE800770ABC /* ViewModel_Tests.swift in Sources */,
+				84E8A16A294B29DA001F08AC /* SpaceXMissions_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84E8A16C294B29DA001F08AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8479FBE1289E531900F49BA2 /* SpaceX-Missions */;
+			targetProxy = 84E8A16B294B29DA001F08AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8479FBEE289E531C00F49BA2 /* Debug */ = {
@@ -455,6 +535,42 @@
 			};
 			name = Release;
 		};
+		84E8A16D294B29DA001F08AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BQWDR6V5R2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "UA.Barbaruk.Maksim.SpaceXMissions-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceX Missions.app/SpaceX Missions";
+			};
+			name = Debug;
+		};
+		84E8A16E294B29DA001F08AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BQWDR6V5R2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "UA.Barbaruk.Maksim.SpaceXMissions-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpaceX Missions.app/SpaceX Missions";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -472,6 +588,15 @@
 			buildConfigurations = (
 				8479FBF1289E531C00F49BA2 /* Debug */,
 				8479FBF2289E531C00F49BA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84E8A16F294B29DA001F08AC /* Build configuration list for PBXNativeTarget "SpaceXMissions_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84E8A16D294B29DA001F08AC /* Debug */,
+				84E8A16E294B29DA001F08AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
