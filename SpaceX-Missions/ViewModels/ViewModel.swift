@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ViewModel: ObservableObject {
+final class ViewModel: ObservableObject {
     @MainActor @Published var rockets: [Rocket] = []
     @MainActor @Published var launches: [Launch] = []
     @Published var metrics = Metrics() {
@@ -18,10 +18,10 @@ class ViewModel: ObservableObject {
         }
     }
     
-    let dataManager: GetDataManager
-    let decoder: JSONDecoder
-    let rocketsURLString: String
-    let launchesURLString: String
+    private let dataManager: GetDataManager
+    private let decoder: JSONDecoder
+    private let rocketsURLString: String
+    private let launchesURLString: String
     
     init(dataManager: GetDataManager = DataManager(),
          decoder: JSONDecoder = .customSpaceXDecoder(),

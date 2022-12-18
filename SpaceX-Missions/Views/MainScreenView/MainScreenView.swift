@@ -16,15 +16,7 @@ struct MainScreenView: View {
         NavigationView {
             ZStack {
                 if !viewModel.rockets.isEmpty {
-                    TabView {
-                        ForEach(viewModel.rockets) { rocket in
-                            RocketSubView(rocket: rocket)
-                        }
-                    }
-                    .tabViewStyle(.page)
-                    .navigationBarHidden(true)
-                    .statusBar(hidden: true)
-                    .ignoresSafeArea()
+                    tabView
                 } else {
                     ProgressView()
                 }
@@ -44,6 +36,20 @@ struct MainScreenView: View {
     }
     
     
+}
+
+extension MainScreenView {
+    private var tabView: some View {
+        TabView {
+            ForEach(viewModel.rockets) { rocket in
+                RocketSubView(rocket: rocket)
+            }
+        }
+        .tabViewStyle(.page)
+        .navigationBarHidden(true)
+        .statusBar(hidden: true)
+        .ignoresSafeArea()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

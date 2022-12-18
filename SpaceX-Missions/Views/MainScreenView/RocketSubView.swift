@@ -61,7 +61,7 @@ struct RocketSubView: View {
 }
 
 extension RocketSubView {
-    private func imageSection(geometry: GeometryProxy)-> some View {
+    private func imageSection(geometry: GeometryProxy) -> some View {
         VStack {
             AsyncImage(url: imageUrl) { image in
                 image

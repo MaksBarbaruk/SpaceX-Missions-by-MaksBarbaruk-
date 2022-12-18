@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Rocket: Codable, Identifiable {
+struct Rocket: Decodable, Identifiable {
     struct Height: Codable {
         let meters: Double
         let feet: Double

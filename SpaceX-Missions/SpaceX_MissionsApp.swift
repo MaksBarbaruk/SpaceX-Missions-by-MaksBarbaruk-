@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct SpaceX_MissionsApp: App {
+    @StateObject var viewModel: ViewModel
+    
     init() {
         let dataManager = DataManager()
         let decoder = JSONDecoder.customSpaceXDecoder()
@@ -21,8 +23,6 @@ struct SpaceX_MissionsApp: App {
         
         _viewModel = StateObject(wrappedValue: vm)
     }
-    
-    @StateObject var viewModel: ViewModel
     
     var body: some Scene {
         WindowGroup {

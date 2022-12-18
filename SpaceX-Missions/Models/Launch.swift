@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Launch: Codable, Identifiable {
+struct Launch: Decodable, Identifiable {
     let name: String
     let dateLocal: Date
     let success: Bool?
