@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataManager: GetDataManager, ObservableObject {
+class DataManager: GetDataManager {
 
     func loadData(from source: String) async throws -> Data {
         

@@ -20,8 +20,8 @@ final class ViewModel: ObservableObject {
     
     private let dataManager: GetDataManager
     private let decoder: JSONDecoder
-    private let rocketsURLString: String
-    private let launchesURLString: String
+    let rocketsURLString: String
+    let launchesURLString: String
     
     init(dataManager: GetDataManager = DataManager(),
          decoder: JSONDecoder = .customSpaceXDecoder(),
