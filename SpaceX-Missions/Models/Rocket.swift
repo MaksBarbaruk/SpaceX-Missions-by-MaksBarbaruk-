@@ -8,26 +8,26 @@
 import Foundation
 
 struct Rocket: Decodable, Identifiable {
-    struct Height: Codable {
+    struct Height: Decodable {
         let meters: Double
         let feet: Double
     }
-    struct Diameter: Codable {
+    struct Diameter: Decodable {
         let meters: Double
         let feet: Double
     }
-    struct Mass: Codable {
+    struct Mass: Decodable {
         let kg: Int
         let lb: Int
     }
 
-    struct Stage: Codable {
+    struct Stage: Decodable {
         let engines: Int
         let fuelAmountTons: Double
         let burnTimeSec: Int?
     }
 
-    struct PayloadWeights: Codable {
+    struct PayloadWeights: Decodable {
         let id: String
         let name: String
         let kg: Int
