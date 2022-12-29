@@ -18,7 +18,8 @@ class ViewModel_Tests: XCTestCase, @unchecked Sendable {
     }
     
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        rockets = []
+        launches = []
     }
     
     func test_ViewModel_rocketsURLString_shouldBeInjectedValue_stress() {
@@ -85,55 +86,46 @@ class ViewModel_Tests: XCTestCase, @unchecked Sendable {
         
     }
     
+    func test_ViewModel_doesLoadMockData() async throws {
+        // Given
+        let vm = ViewModel(dataManager: MockDataManager(), decoder: JSONDecoder())
+        let expectation = XCTestExpectation(description: "Load mock data")
+
+        // When
+        do {
+            try await vm.loadData()
+            expectation.fulfill()
+        } catch let error {
+            XCTFail()
+        }
+
+        Task {
+            for await value in vm.$launches.values {
+                await MainActor.run(body: {
+                    self.launches = value
+                })
+            }
+
+        }
+
+        Task {
+            for await value in vm.$rockets.values {
+                await MainActor.run(body: {
+                    self.rockets = value
+                })
+            }
+
+        }
+
+        // Then
+        wait(for: [expectation], timeout: 1)
+        try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
+        XCTAssertFalse(self.launches.isEmpty)
+        XCTAssertFalse(self.rockets.isEmpty)
+
+    }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    // Network test
-//    func test_ViewModel_doesLoadDataWithDefaults() async throws {
-//        // Given
-//        let vm = ViewModel()
-//        let expectation = XCTestExpectation(description: "Load data in 4 seconds")
-//
-//        // When
-//        do {
-//            try await vm.loadData()
-//            expectation.fulfill()
-//        } catch {
-//            XCTFail()
-//        }
-//
-//        Task {
-//            for await value in vm.$launches.values {
-//                await MainActor.run(body: {
-//                    self.launches = value
-//                })
-//            }
-//
-//        }
-//
-//        Task {
-//            for await value in vm.$rockets.values {
-//                await MainActor.run(body: {
-//                    self.rockets = value
-//                })
-//            }
-//
-//        }
-//
-//        // Then
-//        wait(for: [expectation], timeout: 7)
-//        try? await Task.sleep(nanoseconds: 1 * 1_000_000_000)
-//        XCTAssertFalse(self.launches.isEmpty)
-//        XCTAssertFalse(self.rockets.isEmpty)
-//
-//    }
+
     
     func testExample() throws {
         // This is an example of a functional test case.
